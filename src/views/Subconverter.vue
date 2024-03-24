@@ -4,14 +4,14 @@
       <el-col>
         <el-card>
           <div slot="header">
-            <svg-icon class="gayhub" icon-class="github" style="float:left" @click="goToProject"/>
+            <!-- <svg-icon class="gayhub" icon-class="github" style="float:left" @click="goToProject"/>
             <svg-icon class="dianbao" icon-class="telegram" style="float:left;margin-left: 10px"
                       @click="gotoTgChannel"/>
             <svg-icon class="bilibili" icon-class="bilibili" style="float:right;margin-left:10px"
                       @click="gotoBiliBili"/>
             <svg-icon class="youguan" icon-class="youtube" style="float:right;margin-left:10px" @click="gotoYouTuBe"/>
             <svg-icon class="channel" icon-class="telegram" style="float:right;margin-left: 10px"
-                      @click="gotoTgChannel"/>
+                      @click="gotoTgChannel"/> -->
             <div style="text-align:center;font-size:15px">订 阅 转 换</div>
           </div>
           <el-container>
@@ -496,6 +496,10 @@ export default {
             label: "通用",
             options: [
               {
+                label: "HEX",
+                value: remoteConfigSample
+              },
+              {
                 label: "默认",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini"
               },
@@ -889,9 +893,9 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://api.v1.mk" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? defaultBackend : this.getUrlParam(),
         shortType: "https://v1.mk/short",
-        remoteConfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
+        remoteConfig: remoteConfigSample,
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -906,7 +910,7 @@ export default {
         xudp: false,
         tfo: false,
         sort: false,
-        expand: true,
+        expand: false,
         scv: false,
         fdn: false,
         appendType: false,
@@ -946,7 +950,7 @@ export default {
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
-    this.tanchuang();
+    // this.tanchuang();
     this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
