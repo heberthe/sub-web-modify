@@ -91,6 +91,7 @@ dns:
     - '*.battle.net'
     - '*.189read.com'
     - '*.tyyd.com'
+    - "*.srdcloud.cn"
     - local.adguard.org
     - injections.adguard.org
   nameserver:
